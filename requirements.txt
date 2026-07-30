@@ -1,0 +1,12 @@
+# Minimal environment for running the workshop locally (Google Colab already has these).
+#   python -m venv .venv && .venv/Scripts/activate   (Windows)  or  source .venv/bin/activate  (mac/Linux)
+#   pip install -r requirements.txt
+#   jupyter lab
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.4
+matplotlib>=3.8
+seaborn>=0.13
+xgboost>=2.0
+shap>=0.44
+jupyter

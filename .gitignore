@@ -1,0 +1,22 @@
+# ⚠️  THE DATA MUST NEVER BE COMMITTED ⚠️
+# The workshop CSVs are derived from MIMIC-IV and covered by the PhysioNet Data Use
+# Agreement, which forbids open redistribution. Only data/data_dictionary.md is tracked.
+data/*
+!data/README.md
+!data/data_dictionary.md
+*.csv
+*.parquet
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS / editor junk
+nul
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
