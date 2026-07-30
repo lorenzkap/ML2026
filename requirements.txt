@@ -9,4 +9,12 @@ matplotlib>=3.8
 seaborn>=0.13
 xgboost>=2.0
 shap>=0.44
+pyarrow>=14.0     # notebook 12's to_parquet / read_parquet (Colab bundles it; local installs don't)
+polars>=1.0       # notebook 12's four-engine cleaning benchmark (the notebook pip-installs these
+duckdb>=1.0       #   too, if missing — listed here so a local venv has them up front)
+dask[dataframe]>=2024.1
+gymnasium>=1.0    # notebook 11's Taxi environment (the notebook pip-installs it too, if missing)
 jupyter
+
+# Versions above are MINIMUMS. The outputs committed in the notebooks were produced on newer
+# releases, so the version banner printed by 00_START_HERE will not match yours — that is expected.

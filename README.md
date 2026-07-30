@@ -24,8 +24,11 @@ Two files:
 
 | File | What it is |
 |------|------------|
-| `sepsis_timeseries.csv` | the main file — **one row per patient per 4-hour block**; 1,696 ICU stays |
-| `sepsis_patients.csv` | one row per patient, with the time series already summarised — used from notebook 05 on |
+| `sepsis_timeseries.csv` | the main file — **one row per patient per 4-hour block**: 37,704 rows spanning 1,696 ICU stays |
+| `sepsis_patients.csv` | **one row per ICU stay** (1,696), with the time series already summarised — used from notebook 05 on |
+
+Notebook **04** is where the first file becomes the second, so you never have to take the summary on
+trust — you build it.
 
 If the automatic download fails, paste the Teams link into `WORKSHOP_DATA_URL` at the top of the
 setup cell. As a last resort the notebook will offer to let you upload the two files by hand.
@@ -38,7 +41,8 @@ be found with no download at all.
 **01–08 are the taught core:** pandas → cleaning → exploring → ⭐ time-series features → first models
 → evaluation → SHAP → leakage and pitfalls.
 
-**09–15 are yours to keep:** tuning, 30 pandas tricks, reinforcement learning, working beyond pandas,
+**09–15 are yours to keep:** tuning, 30 pandas tricks, reinforcement learning (a Gym game, then a sepsis
+environment built from the data), working beyond pandas,
 fairness across subgroups, a 🏆 capstone challenge, and its worked solutions.
 
 Notebook **04** is the heart of it — turning a patient's timeline into features is what separates a
