@@ -6,9 +6,10 @@ data/
 *.zip
 _workshop_data/
 
-# Keep the repo to just the notebooks
+# Keep the repo to just the notebooks + the short README
 tests/
 *.md
+!README.md
 
 # Python
 .venv/
