@@ -147,6 +147,10 @@ Every badge opens that notebook directly in Colab.
 | 13 | [⚖️ **Fairness & subgroup performance**](https://colab.research.google.com/github/lorenzkap/ML2026/blob/main/13_fairness_and_subgroups.ipynb) | per-subgroup AUC & calibration, bootstrap CIs, the impossibility theorem | 35 |
 | 14 | [🏆 **The capstone challenge**](https://colab.research.google.com/github/lorenzkap/ML2026/blob/main/14_capstone_challenge.ipynb) | beat the baseline on a locked held-out set · live leaderboard | 60 |
 
+> The **~min** column is how long a notebook takes **self-paced, in full**. The live schedule below
+> runs 07 and 08 as a shorter highlights reel — the notebooks still contain everything, so
+> participants can finish them at home.
+
 Notebook **04** is the heart of the course — clinical data is *temporal*, and knowing how to engineer
 time-series features is what separates a toy model from a useful one. Notebook **14** is the most fun
 way to end a day if the group has energy left; **11** is the "where does this lead?" finale for the
@@ -210,6 +214,32 @@ in **[`data/data_dictionary.md`](data/data_dictionary.md)**.
 - Models built here are **for teaching only** — not validated for clinical use.
 - **Never paste patient rows into a public LLM.** Notebook 10 has the safe recipes; aggregate
   `describe()` output and schema are usually fine, individual records are not.
+
+---
+
+## 🎲 Reproducibility — everyone gets the same numbers
+
+Every notebook ships **with its outputs already saved**, so you can read the whole course on GitHub
+without running a thing — and so you can check your own results against the reference.
+
+The shared setup cell seeds everything at import time:
+
+```python
+RANDOM_STATE = 42
+os.environ["PYTHONHASHSEED"] = str(RANDOM_STATE)
+random.seed(RANDOM_STATE)
+np.random.seed(RANDOM_STATE)          # legacy global np.random.*
+RNG = np.random.default_rng(RANDOM_STATE)   # the modern generator
+```
+
+…and every split, model, search and resample in the course passes `random_state=RANDOM_STATE`
+explicitly. This is verified: each notebook is executed twice in fresh kernels and the printed
+outputs are compared cell by cell. The capstone's held-out split uses its own fixed seed (`2026`) so
+the leaderboard is comparable across the whole room.
+
+**Caveat worth telling participants:** identical seeds guarantee identical results on *the same
+library versions*. Colab updates pandas/scikit-learn/XGBoost periodically, so the last decimal can
+shift. If someone's ROC-AUC reads 0.7538 against a printed 0.7540, nothing is broken.
 
 ---
 
