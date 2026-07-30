@@ -11,7 +11,9 @@ That opens **`00_START_HERE`** in Google Colab (you just need a free Google acco
 from the top: it checks your setup, loads the data, and gives you the clickable index of the whole
 course. Then work through the notebooks in order, starting with **01**.
 
-Every notebook has its own "Open in Colab" badge at the top, so you can jump into any of them.
+Every notebook has its own "Open in Colab" badge at the top, so you can jump into any of them. It
+also carries **previous · index · next** links under that badge and a big **➡️ Next** button at the
+very bottom, so at the end of a notebook you go straight on to the next one without coming back here.
 
 ## 📦 The data
 
@@ -36,11 +38,24 @@ be found with no download at all.
 **01–08 are the taught core:** pandas → cleaning → exploring → ⭐ time-series features → first models
 → evaluation → SHAP → leakage and pitfalls.
 
-**09–14 are yours to keep:** tuning, 30 pandas tricks, reinforcement learning, working beyond pandas,
-fairness across subgroups, and a 🏆 capstone challenge.
+**09–15 are yours to keep:** tuning, 30 pandas tricks, reinforcement learning, working beyond pandas,
+fairness across subgroups, a 🏆 capstone challenge, and its worked solutions.
 
 Notebook **04** is the heart of it — turning a patient's timeline into features is what separates a
 toy model from a useful one.
+
+## 🛠️ Maintaining the course
+
+The prev/next navigation is **generated**, with the index table in `00_START_HERE.ipynb` as the single
+source of truth for the order and the titles:
+
+```bash
+python tools/update_nav.py           # rewrite the navigation in every notebook
+python tools/update_nav.py --check   # exit 1 if any notebook is out of date
+```
+
+Add, rename or reorder a row in that table and re-run it — the header links and the ➡️ Next buttons
+follow. (Run it *after* `tests/run_all_notebooks.py`, not during: executing a notebook rewrites it.)
 
 ## ⚖️ Ground rules
 
