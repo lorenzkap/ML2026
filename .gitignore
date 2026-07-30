@@ -1,11 +1,14 @@
-# ⚠️  THE DATA MUST NEVER BE COMMITTED ⚠️
-# The workshop CSVs are derived from MIMIC-IV and covered by the PhysioNet Data Use
-# Agreement, which forbids open redistribution. Only data/data_dictionary.md is tracked.
-data/*
-!data/README.md
-!data/data_dictionary.md
+# ⚠️  THE PATIENT DATA MUST NEVER BE COMMITTED ⚠️
+# It is covered by a data use agreement that forbids open redistribution.
+data/
 *.csv
 *.parquet
+*.zip
+_workshop_data/
+
+# Keep the repo to just the notebooks
+tests/
+*.md
 
 # Python
 .venv/
