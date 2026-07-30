@@ -259,8 +259,19 @@ README.md                    this file
 INSTRUCTOR_GUIDE.md          timings, talking points, "wow" moments, troubleshooting
 requirements.txt             minimal local environment
 build_sample_dataset.py      how the teaching subset was made
+tests/                       self-tests — run before a workshop (see tests/README.md)
 data/data_dictionary.md      every column explained
 data/*.csv                   ← NOT in git (see licence above); get them from the instructor
+```
+
+Before teaching (or after editing a notebook), run the self-tests:
+
+```bash
+pip install -r requirements.txt nbclient nbformat
+python tests/run_all_notebooks.py     # every notebook executes clean in a fresh kernel
+python tests/test_data_loader.py      # the loader's download / fallback / error paths
+python tests/test_colab_paths.py      # the Colab-only branches (Drive cache, upload)
+python tests/test_determinism.py      # two runs, identical numbers
 ```
 
 ---

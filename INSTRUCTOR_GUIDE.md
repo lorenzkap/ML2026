@@ -58,7 +58,11 @@ correlation section) and run 07/08 as a 25-minute demo with no exercises.
 
 - **Test the pipeline yourself once.** Open `00_START_HERE` and `05` in Colab (via the badges), run
   top to bottom, upload the CSVs. Do this on a *clean* Google account if you can — it's the only way
-  to see what participants see.
+  to see what participants see. **This step cannot be automated away**: the repo's `tests/` folder
+  proves the code is correct, but only a human click proves Colab renders it.
+- **Run the self-tests** if you have edited anything (`tests/README.md`):
+  `python tests/run_all_notebooks.py` executes all 15 in fresh kernels;
+  `python tests/test_determinism.py` proves everyone gets identical numbers.
 - **Decide how the data reaches them** — README "Quick start" has both options. Either hand out the
   two CSVs (USB / internal share) or host them behind a direct-download URL and have everyone set
   `WORKSHOP_DATA_URL` in the setup cell. Remember the **PhysioNet DUA**: only share the data with
