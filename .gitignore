@@ -8,6 +8,7 @@ _workshop_data/
 
 # Keep the repo to just the notebooks + the short README
 tests/
+tools/
 *.md
 !README.md
 
